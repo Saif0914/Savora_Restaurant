@@ -1,5 +1,7 @@
 # Savora — Fine Dining & Artisanal Culinary Experience
 
+![Savora Restaurant](./savora_restaurant.png)
+
 **Savora** is a modern, responsive web application designed for an upscale artisanal restaurant. The platform showcases culinary artistry through a curated menu, chef profiles, culinary stories, and a streamlined online table reservation system.
 
 ---
