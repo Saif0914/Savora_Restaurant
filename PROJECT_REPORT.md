@@ -1,0 +1,151 @@
+# Savora Restaurant & Culinary Arts Web Application
+## Comprehensive Technical, Architectural, and Functional Project Report
+
+---
+
+### Executive Summary
+
+**Project Name:** Savora — Heritage Fine Dining & Culinary Experience  
+**Application Type:** Single-Page Web Application (SPA)  
+**Primary Tech Stack:** React 18+, TypeScript, Vite, Tailwind CSS, Motion (Framer Motion), Lucide React  
+**Architecture Model:** Component-driven, modular client-side application with centralized media registries and reactive state management  
+
+The **Savora Restaurant Web Application** is a high-performance, responsive culinary portal designed to showcase the gastronomic offerings, chef craftsmanship, ambient dining atmosphere, and customer reservation services of the Savora restaurant brand. Designed with meticulous attention to typography, spatial balance, and modern web accessibility standards, the platform provides diners with an immersive digital representation of the in-person fine dining experience.
+
+---
+
+### 1. Technology Stack & Architectural Overview
+
+| Layer | Technology | Role & Purpose |
+| :--- | :--- | :--- |
+| **Runtime & Core UI** | React 18, TypeScript | Strongly typed component tree, reactive hook state (`useState`, `useEffect`, `useMemo`), clean lifecycle management. |
+| **Build & Bundler** | Vite 5 | Fast development compilation, asset hashing, instant Hot Module Reloading during local development, optimized production bundling. |
+| **Styling Engine** | Tailwind CSS 4 | Utility-first styling with custom typographic scales, CSS variables, custom font utilities (`Playfair Display`, `Poppins`, `Satisfy`). |
+| **Animation & Transitions** | Motion (`motion/react`) | Hardware-accelerated entrance animations, layout transitions, exit effects via `AnimatePresence`, scroll-linked reading progress indicator. |
+| **Icons & Visual Language** | Lucide React | Modern, consistent SVG iconography for UI controls, ratings, contacts, and navigation. |
+| **Asset Management** | Centralized Registry Pattern | Dedicated image registry (`src/images.ts`) and native video registry (`src/video.ts`) eliminating hardcoded URLs and unvetted third-party embeds. |
+
+---
+
+### 2. Core Functional Modules & Page Sections
+
+The application is structured into interconnected visual sections that guide prospective diners from discovery to table reservation:
+
+#### 2.1. Header & Dynamic Navigation (`Navbar.tsx`)
+- **Scroll-Aware Sticky Navigation:** Transforms from a transparent luxury header into an elevated white backdrop with subtle blur (`backdrop-blur-md`) upon downward scroll.
+- **Scroll Progress Indicator:** A micro-gradient bar affixed to the top viewport displaying reading progress as users navigate down the page.
+- **Direct Smooth Anchor Navigation:** Interactive links (`Home`, `About`, `Menu`, `Chefs`, `Blog`, `Contact`) with instant smooth scrolling to targeted sections.
+- **Responsive Mobile Drawer:** Collapsible navigation menu designed specifically for mobile and tablet touchscreens with animated toggle transitions.
+- **Quick Action Trigger:** "Book A Table" primary call-to-action button pinned for immediate conversion.
+
+#### 2.2. Hero Presentation (`Hero.tsx`)
+- **Brand Typography:** Dual-font pairing with custom cursive script sub-heading (*"Delicious & Healthy"*) and stately serif title (*"Best Way To Eat Healthy Food"*).
+- **Dual Visual Presentation:** Showcases signature flame-grilled steak photography framed in a custom curved boundary, accented by an interactive aromatic chef spice bowl card with soft hover dynamics.
+- **Interactive Action Buttons:** Direct access to table reservation booking and culinary video experience triggers.
+
+#### 2.3. Exclusive Signature Dishes (`ExclusiveItems.tsx`)
+- **Handcrafted Highlights:** Highlights three signature specialties:
+  1. *Indian Burger Royale* (Fast Gourmet)
+  2. *Creamy Tagliatelle Noodles* (Handmade Pasta)
+  3. *Honey Glazed Tender Roast* (Wood-fired Specialties)
+- **Interactive Dish Inspection:** Clicking any dish card launches an in-depth modal featuring dietary notes, culinary preparation details, price breakdown, and direct table booking integration.
+
+#### 2.4. Heritage & Culinary Philosophy (`OurHistory.tsx`)
+- **Brand Storytelling:** Highlights the founding heritage, dedication to organic sustainable farming, and Michelin-trained culinary standards.
+- **Asymmetrical Plate Composition:** Circular plated harvest display surrounded by fresh garnish accents and an interactive experience badge (*"15+ Years of Culinary Excellence"*).
+- **Interactive Story Modal:** Complete historical timeline modal available for engaged visitors.
+
+#### 2.5. Categorized Food Menu (`FoodMenu.tsx`)
+- **Atmospheric Background:** Subtly filtered ambient dining hall backdrop with warm-toned legibility overlay.
+- **Category Filter Tabs:** Tabbed navigation filtering items across five dining occasions:
+  - *Special Chef Selections*
+  - *Artisanal Breakfast*
+  - *Business Lunch / Launch*
+  - *Evening Dinner*
+  - *Sneaks & Charcuterie (Snacks)*
+- **Dual-Column Pricing Grid:** Two-column cards displaying dish photography, dish name, descriptions, and high-contrast pricing tags.
+- **Full Menu Inspection Modal:** Enables guests to view nutrition, spice level, allergen warnings, and ingredients before ordering.
+
+#### 2.6. Ambient Video Showcase & Native Video Player (`VideoBanner.tsx`, `Modals.tsx`, `video.ts`)
+- **Native HTML5 Streaming:** Eliminates unreliable third-party YouTube embeds in favor of an optimized, high-performance HTML5 `<video>` player.
+- **Multi-Feature Playlist Selector:** Allows users to choose between multiple video clips:
+  - *Savora Culinary Story & Kitchen Artistry*
+  - *The Art of Plating & Heritage Flavors*
+  - *Evening Atmosphere & Sommelier Selection*
+- **Player Features:** Custom poster frame, hardware acceleration, full playback controls, and responsive 16:9 cinematic aspect ratio.
+
+#### 2.7. Executive Culinary Masters (`Chefs.tsx`)
+- **Chef Profiles:** Spotlights Executive Master Chefs Adam Billiard, Fred Macyard, and Justin Stuard.
+- **Interactive Cards:** Displays culinary specializations, professional credentials, and direct modal biographies with interactive social media icons.
+
+#### 2.8. Verified Customer Testimonials (`TestimonialsSection.tsx`)
+- **Gentle Auto-Rotation:** Smooth automated transitions between verified customer feedback and quotes every 7 seconds, with manual arrow controls and pagination dots.
+- **Social Proof:** Executive reviews detailing taste profile, wine curation, and atmosphere.
+
+#### 2.9. Real-Time Table Reservation Engine (`ReservationSection.tsx`)
+- **Form Controls:** Guest selection (1 to 6+ guests), reservation date picker, service time slots (lunch and dinner sessions), guest name, email, contact number, and special dining requests.
+- **Client-Side Validation:** Validates form inputs, prevents invalid bookings, and displays interactive loading feedback.
+- **Instant Confirmation Dialog:** Generates a confirmed booking voucher modal summarizing guest count, date, time slot, and contact details.
+
+#### 2.10. Culinary News & Editorial Blog (`BlogSection.tsx`)
+- **Food Journalism:** Articles covering sourdough pastry techniques, dry-aging craftsmanship, and edible botanical garnishes.
+- **Full Article Modal:** Readers can read the full article without leaving the page.
+
+#### 2.11. Footer & Utilities (`Footer.tsx`)
+- **Brand Information:** Operating schedule, contact info, Google Maps direction trigger, social media links, and an interactive newsletter subscription form with instant validation.
+
+---
+
+### 3. Media & Asset Architecture
+
+To ensure maintainability, maintain high uptime, and avoid scattered URL strings across components, all media assets are decoupled into dedicated registries:
+
+1. **Centralized Image Registry (`src/images.ts`):**
+   - Categorizes all hero photography, food dishes, master chef portraits, testimonial avatars, and atmospheric background textures.
+   - Clean, typed keys allow swapping from remote CDN URLs to local files (`/public/images/`) without altering component code.
+
+2. **Native Video Registry (`src/video.ts`):**
+   - Replaces third-party YouTube iframes with direct HTML5 video stream definitions.
+   - Includes metadata (`title`, `subtitle`, `description`, `poster`, `duration`, `src`, `type`).
+
+---
+
+### 4. User Experience & Anti-Slop Design Guidelines
+
+The application strictly adheres to rigorous UI/UX principles:
+- **No Generic AI Slop:** Banned purple-to-blue neon gradients, arbitrary glassmorphism, or artificial 3-column metric widgets.
+- **Sophisticated Warm Palette:** Ivory backgrounds (`#ffffff`, `#fdfbf8`, `#fbf9f6`), charcoal text (`#1a1a1a`, `#666666`), and warm terracotta orange accents (`#ff6426`).
+- **Mathematical Typography & Spacing:** Heading font `Playfair Display` paired with `Poppins` for body text and `Satisfy` for artisanal script highlights.
+- **Fluid Smooth Scrolling:** Full smooth scrolling (`scroll-behavior: smooth`) across all navigation triggers.
+- **Clean Borderless Viewport:** Removed the browser scrollbar slider on the right side for a polished, app-like visual presentation (`scrollbar-width: none`).
+
+---
+
+### 5. Verification & Code Quality Metrics
+
+- **TypeScript Compilation:** Strict TypeScript type checking with zero compilation errors (`tsc --noEmit` exits with status `0`).
+- **Production Build:** Vite production bundle generates clean static HTML, CSS, and JS output (`vite build` completes successfully).
+- **Responsive Compatibility:** Verified across Mobile (320px–640px), Tablet (768px–1024px), and Desktop (1280px+).
+- **Accessibility (WCAG AA):** High contrast text ratios, descriptive `alt` tags on all culinary photography, ARIA labels on all modal and navigation triggers.
+
+---
+
+### 6. Deployment and Local Development Guide
+
+#### Development Server
+```bash
+npm run dev
+# Starts development server on http://localhost:3000
+```
+
+#### Production Build
+```bash
+npm run build
+# Compiles optimized static assets to /dist
+```
+
+#### Code Verification
+```bash
+npm run lint
+# Runs TypeScript compiler in non-emitting validation mode
+```

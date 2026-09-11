@@ -1,0 +1,6 @@
+{
+  "name": "Savora Restaurant",
+  "description": "Artisanal fine dining and culinary experience with delicious food menus, master chefs, table reservations, and stories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
